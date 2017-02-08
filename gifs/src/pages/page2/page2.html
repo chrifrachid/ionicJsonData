@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Posts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-card *ngIf="item.data.thumbnail" item-left >
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="{{item.data.thumbnail}}">
+          </ion-avatar>
+          <h2>{{item.data.title}}</h2>
+          <p>{{item.data.date}}</p>
+        </ion-item>
+        <img src="{{item.data.url}}">
+        <ion-card-content>
+          <p>{{item.data.author}}</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>{{item.data.score}}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>{{item.data.num_comments}}</div>
+            </button>
+          </ion-col>
+
+          <ion-col center text-center>
+            <ion-note>{{item.data.subreddit}}</ion-note>
+          </ion-col>
+        </ion-row>
+        <a ion-button full block target="_blank" href="http://reddit.com/{{item.data.permalink}}">View on Reddit </a>
+
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

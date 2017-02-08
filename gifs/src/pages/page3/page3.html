@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Page Three</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding>
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="kittens">
+      Author
+    </ion-segment-button>
+    <ion-segment-button value="puppies">
+      Title
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
+        <img src="{{item.data.thumbnail}}">
+      </ion-thumbnail>
+      <h2>{{item.data.author}}</h2>
+    </ion-item>
+    ...
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'kittens'">
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
+        <img src="{{item.data.thumbnail}}">
+      </ion-thumbnail>
+      <h2>{{item.data.title}}</h2>
+    </ion-item>
+    ...
+  </ion-list>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
