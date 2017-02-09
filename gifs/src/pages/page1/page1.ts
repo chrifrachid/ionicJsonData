@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RedditData } from '../../app/providers/redditData.service';
-import { Page4 } from '../pages/page4/page4';
 
 
 @Component({
@@ -16,16 +15,12 @@ export class Page1 {
   }
 
   ionViewDidLoad(){
-    console.log("Page 1 outout");
+    console.log("--This data must be in a map for navigation purposes--");
     this.redditData.getLocalData().subscribe(response => {
       this.items = response.data.children;
       console.log(this.items);
     });
 
-  }
-
-  detailsPage(id){
-    this.navCtrl.push(Page4, {name: id})
   }
 
 

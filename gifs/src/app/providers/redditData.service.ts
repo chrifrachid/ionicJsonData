@@ -6,12 +6,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RedditData {
   constructor(public http: Http) {
-  console.log('Service ran');
+  console.log('--|SERVICE STARTED|--');
 
   }
 
   getLocalData(){
-  console.log(this.http.get('assets/data/redditData.json').map(res => res.json()));
     return this.http.get('assets/data/redditData.json').map(res => res.json());
   }
 
