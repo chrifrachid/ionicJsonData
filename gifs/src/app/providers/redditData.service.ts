@@ -13,6 +13,16 @@ export class RedditData {
   getLocalData(){
     return this.http.get('assets/data/redditData.json').map(res => res.json());
   }
+  getByID(id){
+  this.http.get('assets/data/redditData.json').map(res => res.json()).subscribe(response => {
+    this.items = response.data.children;});
 
+    for(var i=0; i<this.items.length; i++){
+      if(this.items[i].name == id){
+        return this.items[i];
+      }
+    }
+
+  }
 
 }

@@ -7,10 +7,11 @@ import { RedditData } from '../../app/providers/redditData.service';
   templateUrl: 'page4.html'
 })
 export class Page4 {
-  items: any;
-  photo: any;
+  items: any = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, public redditData: RedditData) {
-
+    this.redditData.getByID(this.navParams.get('name')).subscribe(response => {
+      this.items = response.data.children;
+    })
   }
 
   ionViewDidLoad(){

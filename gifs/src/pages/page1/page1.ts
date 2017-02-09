@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RedditData } from '../../app/providers/redditData.service';
-
+import { Page4 } from '../page4/page4';
 
 @Component({
   selector: 'page-page1',
@@ -22,6 +22,10 @@ export class Page1 {
     });
 
   }
+
+  getByID(id){
+    this.navCtrl.push(Page4, {name : id});
+  };
 
 
 }
