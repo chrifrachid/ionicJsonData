@@ -13,8 +13,7 @@ export class RedditData {
   getLocalData(){
   console.log(this.http.get('assets/data/redditData.json').map(res => res.json()));
     return this.http.get('assets/data/redditData.json').map(res => res.json());
-
-
   }
+
 
 }

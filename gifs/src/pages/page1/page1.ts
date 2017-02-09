@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RedditData } from '../../app/providers/redditData.service';
+import { Page4 } from '../pages/page4/page4';
 
 
 @Component({
@@ -20,6 +21,11 @@ export class Page1 {
       this.items = response.data.children;
       console.log(this.items);
     });
+
+  }
+
+  detailsPage(id){
+    this.navCtrl.push(Page4, {name: id})
   }
 
 

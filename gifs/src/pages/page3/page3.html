@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page Three</ion-title>
+    <ion-title>Timeline</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,13 +11,33 @@
   <div padding>
   <ion-segment [(ngModel)]="pet">
     <ion-segment-button value="kittens">
-      Author
+      View Projects
     </ion-segment-button>
     <ion-segment-button value="puppies">
-      Title
+      Weekly Top 5
     </ion-segment-button>
   </ion-segment>
 </div>
+<div padding>
+  <ion-item>
+    <h2>Caption</h2>
+    <ion-icon name="thumbs-up" item-right></ion-icon>
+    <p item-right>323</p>
+
+  </ion-item>
+  <ion-thumbnail>
+    <img src="assets/img/contempo102png.png">
+  </ion-thumbnail>
+  <ion-item>
+  <ion-icon name="text" item-right color="secondary"></ion-icon>
+  <div item-right>34</div>
+  <p item-left>Author</p>
+
+  </ion-item>
+</div>
+
+
+
 
 <div [ngSwitch]="pet">
   <ion-list *ngSwitchCase="'puppies'">
@@ -26,8 +46,8 @@
         <img src="{{item.data.thumbnail}}">
       </ion-thumbnail>
       <h2>{{item.data.author}}</h2>
+
     </ion-item>
-    ...
   </ion-list>
 
   <ion-list *ngSwitchCase="'kittens'">
@@ -35,7 +55,10 @@
       <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
         <img src="{{item.data.thumbnail}}">
       </ion-thumbnail>
-      <h2>{{item.data.title}}</h2>
+      <br>
+      <h5>{{item.data.title}}</h5>
+      <ion-icon name="text" item-right color="secondary"></ion-icon>
+      <div item-right>{{item.data.num_comments}}</div>
     </ion-item>
     ...
   </ion-list>
