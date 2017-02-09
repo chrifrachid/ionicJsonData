@@ -8,24 +8,19 @@
 </ion-header>
 
 
-<ion-spinner name="circles" *ngIf="items == 0"></ion-spinner>
-<ion-content padding *ngIf="items != 0">
+<ion-content padding>
+  <ion-thumbnail>
+    <img src="assets/img/contempo102png.png">
+  </ion-thumbnail>
 
 <div padding>
   <ion-item *ngFor="let item of items">
     <h2>{{item.data.title}}</h2>
+    <h2 item-right>{{item.data.num_comments}}</h2>
     <ion-icon name="thumbs-up" item-right></ion-icon>
+    <p item-left>{{item.data.author}}</p>
+
     <p item-right>{{item.data.score}}</p>
-
-  </ion-item>
-  <ion-thumbnail>
-    <img src="assets/img/contempo102png.png">
-  </ion-thumbnail>
-  <ion-item *ngFor="let item of items">
-  <ion-icon name="text" item-right color="secondary"></ion-icon>
-  <div item-right>{{item.data.num_comments}}</div>
-  <p item-left>{{item.data.author}}</p>
-
   </ion-item>
 </div>
 

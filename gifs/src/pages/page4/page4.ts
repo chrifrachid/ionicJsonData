@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { RedditData } from '../../app/providers/redditData.service';
 
 @Component({
@@ -7,19 +7,23 @@ import { RedditData } from '../../app/providers/redditData.service';
   templateUrl: 'page4.html'
 })
 export class Page4 {
-  items: any = 0;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public redditData: RedditData) {
-    this.redditData.getByID(this.navParams.get('name')).subscribe(response => {
-      this.items = response.data.children;
-    })
+  items: any;
+  constructor(public navCtrl: NavController, public redditData: RedditData) {
   }
 
   ionViewDidLoad(){
     this.redditData.getLocalData().subscribe(response => {
       this.items = response.data.children;
-      console.log(this.items);
+      for(var i = 0; i < (this.items).length; i++){
+        if(this.items[i].data.num_comments >= 30){
+          this.items = [this.items[i]];
+          console.log(this.items)
+        }
+      }
     });
+
   }
+
 
 
 }
