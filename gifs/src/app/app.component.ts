@@ -15,6 +15,8 @@ import { Page4 } from '../pages/page4/page4';
   providers: [RedditData]
 })
 export class MyApp {
+myIcon: string = "home";
+
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = Page1;

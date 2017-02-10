@@ -8,22 +8,11 @@ import { Page4 } from '../page4/page4'
   templateUrl: 'page1.html'
 })
 export class Page1 {
-  searchQuery: string = '';
-  itemList: string[];
   items: any;
   titles: any =0;
+  search: string = '';
+  list: string[];
   constructor(public navCtrl: NavController, public redditData: RedditData) {
-
-    getItems(ev: any){
-      this.initializeItems();
-      let val = ev.target.value;
-      if(val && val.trim() != ''){
-        this.itemList = this.itemList.filter((itemList) => {
-          return (itemList.toLowerCase().indexOf(val.toLowerCase()) > -1);
-        });
-
-      }
-    }
     this.redditData.loadAll().then(result => {
       this.titles = result;
     });
@@ -40,13 +29,18 @@ export class Page1 {
   detailsPage(id){
     this.navCtrl.push(Page4, {code: id})
   }
+  getItems(ev: any){
+    this.redditData.loadAll().then(result => {
+      this.list = result;
+    });
 
-  this.initializeItems(){
-  this.itemList = [
-  'Amsterdam',
-  'Bogota'
-  ];
+    let val = ev.target.value;
 
+    if(val && val.trim() != ''){
+      this.list = this.list.filter((list) =>{
+        return (list.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    }
   }
 
 

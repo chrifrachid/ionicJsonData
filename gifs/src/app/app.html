@@ -3,14 +3,14 @@
     <ion-toolbar color="">
       <ion-title></ion-title>
       <ion-thumbnail>
-        <img src="assets/img/RD.png">
+        <img src="assets/img/ps.png">
       </ion-thumbnail>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <h5> <ion-icon name="heart"></ion-icon> {{p.title}}</h5>
       </button>
   </ion-content>
 

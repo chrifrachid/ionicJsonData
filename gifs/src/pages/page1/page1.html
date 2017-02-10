@@ -4,12 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title></ion-title>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list *ngFor="let title of titles" >
-      <ion-item>
-        {{ title.title }}
-      </ion-item>
-    </ion-list>
+
 
   </ion-navbar>
 
@@ -20,14 +15,35 @@
   <ion-spinner name="circles" *ngIf="titles == 0"></ion-spinner>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
-  <ion-list  *ngIf="titles != 0">
-  <button ion-item *ngFor="let title of titles" (click)="detailsPage(title.code)">
-    <br>
-    <h4>
-    {{ title.code }} - <span style="color:green">{{ title.product }}</span>
-  </h4>
-  </button>
-</ion-list>
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+        <ion-list  *ngIf="titles != 0">
+            <ion-item>
+              {{ titles.title }}
+            </ion-item>
+          <button ion-item *ngFor="let title of titles" (click)="detailsPage(title.code)">
+            <br>
+            <h4>
+            {{ title.code }} - <span style="color:green">{{ title.product }}</span>
+          </h4>
+          </button>
+        </ion-list>
+      </ion-col>
+      <ion-col width-50>
+        <ion-thumbnail>
+          <img src="assets/img/lifestyle.png">
+        </ion-thumbnail>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 
 <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
