@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { RedditData } from '../../app/providers/redditData.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { RedditData } from '../../app/providers/redditData.service';
 })
 export class Page4 {
   items: any;
-  constructor(public navCtrl: NavController, public redditData: RedditData) {
+  title; any = 0;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public redditData: RedditData) {
   }
 
   ionViewDidLoad(){
@@ -21,9 +22,11 @@ export class Page4 {
         }
       }
     });
-
   }
 
-
-
+  detailsPage(){
+    this.redditData.getByID(this.navParams.get('code')).then(result => {
+      this.title = result;
+    });
+  }
 }

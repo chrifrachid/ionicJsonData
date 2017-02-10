@@ -7,20 +7,16 @@
   </ion-navbar>
 </ion-header>
 
+<ion-spinner name="circle" *ngIf="title == 0"></ion-spinner>
 
-<ion-content padding>
-  <ion-thumbnail>
-    <img src="assets/img/contempo102png.png">
-  </ion-thumbnail>
-
+<ion-content padding *ngIf="title != 0">
 <div padding>
-  <ion-item *ngFor="let item of items">
-    <h2>{{item.data.title}}</h2>
-    <h2 item-right>{{item.data.num_comments}}</h2>
+  <ion-item>
+    <h2>{{title.title}}</h2>
+    <h2 item-right>{{title.product}}</h2>
     <ion-icon name="thumbs-up" item-right></ion-icon>
-    <p item-left>{{item.data.author}}</p>
 
-    <p item-right>{{item.data.score}}</p>
+    <p item-right>{{title.code}}</p>
   </ion-item>
 </div>
 

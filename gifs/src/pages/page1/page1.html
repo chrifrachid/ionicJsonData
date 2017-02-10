@@ -8,13 +8,14 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-spinner name="circles" *ngIf="titles == 0"></ion-spinner>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
-  <ion-list>
-  <button ion-item *ngFor="let item of items" (click)="detailsPage(item.name)">
+  <ion-list  *ngIf="titles != 0">
+  <button ion-item *ngFor="let title of titles" (click)="detailsPage(title.code)">
     <br>
     <h4>
-    {{ item.data.title }} - <span style="color:green">{{ item.data.author }}</span>
+    {{ title.code }} - <span style="color:green">{{ title.product }}</span>
   </h4>
   </button>
 </ion-list>
