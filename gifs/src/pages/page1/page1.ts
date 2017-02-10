@@ -8,9 +8,22 @@ import { Page4 } from '../page4/page4'
   templateUrl: 'page1.html'
 })
 export class Page1 {
+  searchQuery: string = '';
+  itemList: string[];
   items: any;
   titles: any =0;
   constructor(public navCtrl: NavController, public redditData: RedditData) {
+
+    getItems(ev: any){
+      this.initializeItems();
+      let val = ev.target.value;
+      if(val && val.trim() != ''){
+        this.itemList = this.itemList.filter((itemList) => {
+          return (itemList.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        });
+
+      }
+    }
     this.redditData.loadAll().then(result => {
       this.titles = result;
     });
@@ -26,6 +39,14 @@ export class Page1 {
   }
   detailsPage(id){
     this.navCtrl.push(Page4, {code: id})
+  }
+
+  this.initializeItems(){
+  this.itemList = [
+  'Amsterdam',
+  'Bogota'
+  ];
+
   }
 
 

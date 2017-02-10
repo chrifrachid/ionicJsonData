@@ -3,9 +3,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title></ion-title>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list *ngFor="let title of titles" >
+      <ion-item>
+        {{ title.title }}
+      </ion-item>
+    </ion-list>
+
   </ion-navbar>
+
 </ion-header>
+
 
 <ion-content padding>
   <ion-spinner name="circles" *ngIf="titles == 0"></ion-spinner>

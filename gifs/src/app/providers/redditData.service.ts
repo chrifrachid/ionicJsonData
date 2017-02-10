@@ -12,8 +12,13 @@ export class RedditData {
     { title: "Unbrakable Apps", code: 1223, product: "Top Socials" },
     { title: "Thinking Bots", code: 5233, product: "Chat App101" },
     { title: "Groundbraking Tech", code: 1553, product: "Speed Save" },
-    { title: "Unbrakable Apps", code: 6091, product: "Pictorial" },
-    { title: "Brake and Make", code: 7623, product: "B&O" }
+    { title: "DemoApp-Tester", code: 6191, product: "Pictorial" },
+    { title: "T-Shirt Pro", code: 7023, product: "B&O" },
+    { title: "radArts", code: 1223, product: "Socials-Busters" },
+    { title: "iOBots", code: 5633, product: "Chat Applets Demos" },
+    { title: "GhokuMaker", code: 1550, product: "SpeedTracker" },
+    { title: "SibonileInc", code: 6041, product: "Pictorial" },
+    { title: "BrakingDoors", code: 7523, product: "B&O ft rad" }
   ];
 }
   loadAll(){
