@@ -4,21 +4,12 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title></ion-title>
-
-
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-spinner name="circles" *ngIf="titles == 0"></ion-spinner>
-
   <button ion-button secondary menuToggle>Toggle Menu</button>
-
-
-
-
   <ion-grid>
     <ion-row>
       <ion-col width-50>
@@ -36,6 +27,14 @@
         </ion-list>
       </ion-col>
       <ion-col width-50>
+        <h4>Internet of things : <span style="color:lightgreen">B-lite.</span></h4>
+        <ion-thumbnail>
+          <img src="assets/img/blite.png">
+        </ion-thumbnail>
+        <h4>Selected Contact</h4>
+        <ion-thumbnail>
+          <img src="assets/img/minimal design.png">
+        </ion-thumbnail>
         <h4>Selected Contact</h4>
         <ion-thumbnail>
           <img src="assets/img/RunningLate1j.png">
@@ -44,9 +43,7 @@
     </ion-row>
   </ion-grid>
 
-
-
-<ion-fab right bottom>
+  <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
@@ -55,7 +52,6 @@
       <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
-
 </ion-content>
 
 <ion-footer>

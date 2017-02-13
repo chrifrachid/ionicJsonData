@@ -20,30 +20,44 @@
 </div>
 <div padding>
   <ion-item>
-    <h2>Caption</h2>
+    <h2>Most Viewed Artwork</h2>
     <ion-icon name="thumbs-up" item-right></ion-icon>
     <p item-right>323</p>
-
   </ion-item>
-  <ion-thumbnail>
-    <img src="assets/img/contempo102png.png">
-  </ion-thumbnail>
   <ion-item>
   <ion-icon name="text" item-right color="secondary"></ion-icon>
   <div item-right>34</div>
+  <ion-thumbnail item-left>
+    <img src="assets/img/contempo102png.png">
+  </ion-thumbnail>
   <p item-left>Author</p>
-
   </ion-item>
 </div>
 
-
-
-
 <div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="assets/img/contempo102png.png">
+      </ion-thumbnail>
+      <h2>Some</h2>
+    </ion-item>
+  </ion-list>
+
   <ion-list *ngSwitchCase="'puppies'">
     <ion-item *ngFor="let item of items">
       <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
         <img src="{{item.data.thumbnail}}">
+      </ion-thumbnail>
+      <h2>{{item.data.author}}</h2>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
+        <img src="assets/img/contempo102png.png">
       </ion-thumbnail>
       <h2>{{item.data.author}}</h2>
 
