@@ -3,14 +3,22 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Chat</ion-title>
+    <ion-title>Detais</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-spinner name="circle" *ngIf="title == 0"></ion-spinner>
 
 <ion-content padding *ngIf="title != 0">
+<div padding>
+  <ion-item>
+    <h2>{{title.title}}</h2>
+    <h2 item-right>{{title.product}}</h2>
+    <ion-icon name="thumbs-up" item-right></ion-icon>
 
+    <p item-right>{{title.code}}</p>
+  </ion-item>
+</div>
 
 </ion-content>
 <ion-footer>

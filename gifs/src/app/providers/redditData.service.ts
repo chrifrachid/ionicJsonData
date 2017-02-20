@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RedditData {
   titles: any;
+  songs: any;
   constructor(public http: Http) {
   console.log('SERVICE STARTED');
   this.titles = [
@@ -19,6 +20,16 @@ export class RedditData {
     { title: "GhokuMaker", code: 1550, product: "SpeedTracker" },
     { title: "SibonileInc", code: 6041, product: "Pictorial" },
     { title: "BrakingDoors", code: 7523, product: "B&O ft rad" }
+  ];
+  this.songs = [
+    {
+      "name": "Guided Rythm",
+      "artist": "Tantrum Desire",
+      "album": "Dubstep Rythms",
+      "url": "/assets/sound/TantrumDesire-GuidedRhythm.mp3",
+      "live": false,
+      "cover_art_url": "/assets/img/no-cover.png"
+    }
   ];
 }
   loadAll(){

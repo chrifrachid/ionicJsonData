@@ -11,6 +11,7 @@ import { Page4 } from '../pages/page4/page4';
 import { Page5 } from '../pages/page5/page5';
 
 
+
 @Component({
   templateUrl: 'app.html',
   providers: [RedditData]

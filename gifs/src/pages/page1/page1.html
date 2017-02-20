@@ -18,7 +18,7 @@
             <ion-item>
               {{ titles.title }}
             </ion-item>
-          <button ion-item *ngFor="let title of titles" (click)="detailsPage(title.code)">
+          <button ion-item *ngFor="let title of titles" (click)="detailsPage(titless.code)">
             <br>
             <h4>
             {{ title.code }} - <span style="color:green">{{ title.product }}</span>
@@ -27,10 +27,126 @@
         </ion-list>
       </ion-col>
       <ion-col width-50>
-        <h4>Internet of things : <span style="color:lightgreen">B-lite.</span></h4>
-        <ion-thumbnail>
-          <img src="assets/img/blite.png">
-        </ion-thumbnail>
+        <h4>The Republic of :<span style="color:lightblue">Sound Design.</span></h4>
+
+        <!-- Start Top Header -->
+    		<div id="top-header" class="hidden-on-collapse">
+    			<div id="top-header-toggle" class="small-player-toggle-contract"></div>
+
+    			<div class="now-playing-title" amplitude-song-info="name"></div>
+    			<div class="album-information"><span amplitude-song-info="artist"></span> - <span amplitude-song-info="album"></span></div>
+    		</div>
+    		<!-- End Top Header -->
+
+    		<!-- Start Large Album Art -->
+    		<div id="top-large-album" class="hidden-on-collapse">
+    			<img id="large-album-art" amplitude-song-info="cover"/>
+    		</div>
+    		<!-- End Large Album Art -->
+
+    		<!-- Begin Small Player -->
+    		<div id="small-player">
+    			<!-- Begin Small Player Left -->
+    			<div id="small-player-left" class="hidden-on-expanded">
+    				<div id="small-player-toggle" class="small-player-toggle-expand"></div>
+    			</div>
+    			<!-- End Small Player Left -->
+
+    			<!-- Begin Small Player Album Art -->
+    			<img id="small-player-album-art" class="hidden-on-expanded" amplitude-song-info="cover"/>
+    			<!-- End Small Player Album Art -->
+
+    			<!-- Begin Small Player Middle -->
+    			<div id="small-player-middle" class="hidden-on-expanded">
+    				<div id="small-player-middle-top">
+    					<!-- Begin Controls Container -->
+    					<div id="small-player-middle-controls">
+    						<div class="amplitude-prev" id="middle-top-previous"></div>
+    						<div class="amplitude-play-pause amplitude-paused" amplitude-main-play-pause="true" id="middle-top-play-pause"></div>
+    						<div class="amplitude-next" id="middle-top-next"></div>
+    					</div>
+    					<!-- End Controls Container -->
+
+    					<!-- Begin Meta Container -->
+    					<div id="small-player-middle-meta">
+    						<div class="now-playing-title" amplitude-song-info="name"></div>
+    						<div class="album-information"><span amplitude-song-info="artist"></span> - <span amplitude-song-info="album"></span></div>
+    					</div>
+    					<!-- End Meta Container -->
+    				</div>
+
+    				<div id="small-player-middle-bottom">
+    					<div class="amplitude-song-time-visualization" amplitude-single-song-time-visualization="true" id="song-time-visualization"></div>
+    				</div>
+    			</div>
+    			<!-- End Small Player Middle -->
+
+    			<!-- Begin Small Player Right -->
+    			<div id="small-player-right" class="hidden-on-expanded">
+    				<div id="toggle-playlist" class="playlist-toggle"></div>
+    				<span class="current-time">
+    					<span class="amplitude-current-minutes" amplitude-single-current-minutes="true">0</span>:<span class="amplitude-current-seconds" amplitude-single-current-seconds="true">00</span>
+    				</span>
+    			</div>
+    			<!-- End Small Player Right -->
+
+    			<!-- Begin Small Player Full Bottom -->
+    			<div id="small-player-full-bottom" class="hidden-on-collapse">
+    				<div id="toggle-playlist-full" class="playlist-toggle"></div>
+    				<div id="small-player-full-bottom-controls">
+    					<div class="amplitude-prev" id="middle-bottom-previous"></div>
+    					<div class="amplitude-play-pause amplitude-paused" amplitude-main-play-pause="true" id="small-player-bottom-play-pause"></div>
+    					<div class="amplitude-next" id="middle-top-next"></div>
+    				</div>
+    				<div id="small-player-full-bottom-info">
+    					<span class="current-time">
+    						<span class="amplitude-current-minutes" amplitude-single-current-minutes="true">0</span>:<span class="amplitude-current-seconds" amplitude-single-current-seconds="true">00</span>
+    					</span>
+
+    					<div class="amplitude-song-time-visualization" amplitude-single-song-time-visualization="true" id="song-time-visualization-large"></div>
+
+    					<span class="time-duration">
+    						<span class="amplitude-duration-minutes" amplitude-single-duration-minutes="true">0</span>:<span class="amplitude-duration-seconds" amplitude-single-duration-seconds="true">00</span>
+    					</span>
+    				</div>
+    			</div>
+    			<!-- End Small Player Full Bottom -->
+    		</div>
+    		<!-- End Small Player -->
+
+    		<!-- Begin Playlist -->
+    		<div id="small-player-playlist">
+    			<div class="information">
+    				Playlist
+    				<hr>
+    			</div>
+    			<div class="amplitude-song-container amplitude-play-pause playlist-item" amplitude-song-index="0">
+    				<img src="assets/img/theweatherman.jpg" class="album-art"/>
+    				<div class="playlist-meta">
+    					<div class="now-playing-title">Living Proof</div>
+    					<div class="album-information"><span>Gregory Alan Isakov - The Weatherman</span></div>
+    				</div>
+    				<div style="clear: both;"></div>
+    			</div>
+    			<div class="amplitude-song-container amplitude-play-pause playlist-item" amplitude-song-index="1">
+    				<img src="assets/img/roomsforadelaide.jpg" class="album-art"/>
+    				<div class="playlist-meta">
+    					<div class="now-playing-title">Rooms</div>
+    					<div class="album-information"><span>Mia and Jonah - Rooms For Adelaide</span></div>
+    				</div>
+    				<div style="clear: both;"></div>
+    			</div>
+    			<div class="amplitude-song-container amplitude-play-pause playlist-item" amplitude-song-index="2">
+    				<img src="assets/img/thesuburbs.jpeg" class="album-art"/>
+    				<div class="playlist-meta">
+    					<div class="now-playing-title">Suburban War</div>
+    					<div class="album-information"><span>The Arcade Fire - The Suburbs</span></div>
+    				</div>
+    				<div style="clear: both;"></div>
+    			</div>
+    		</div>
+    		<!-- End Playlist -->
+
         <h4>Selected Contact</h4>
         <ion-thumbnail>
           <img src="assets/img/minimal design.png">

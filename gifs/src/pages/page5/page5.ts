@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RedditData } from '../../app/providers/redditData.service';
 
+
+
 @Component({
   selector: 'page-page5',
   templateUrl: 'page5.html'

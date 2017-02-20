@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,500">
 
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
@@ -13,6 +14,12 @@
 
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
+
+  <script type="text/javascript" src="build/amplitude.js"></script>
+  <!-- jQuery only used to help with animations and NON Amplitude elements -->
+  <script type="text/javascript" src="build/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="build/styles.css"/>
 
   <!-- un-comment this code to enable service worker
   <script>
@@ -41,4 +48,120 @@
   <script src="build/main.js"></script>
 
 </body>
+
+
+<script type="text/javascript">
+  Amplitude.init({
+    "songs": [
+      {
+        "name": "Living Proof",
+        "artist": "Gregory Alan Isakov",
+        "album": "The Weatherman",
+        "url": "/assets/sound/TantrumDesire-GuidedRhythm.mp3",
+        "live": false,
+        "cover_art_url": "/assets/img/radFad1.png"
+
+      },
+      {
+        "name": "Rooms",
+        "artist": "Mia and Jonah",
+        "album": "Rooms For Adelaide",
+        "url": "/assets/sound/KillParis-TenderLove.mp3",
+        "live": false,
+        "cover_art_url": "/assets/img/radmusicpod.png"
+      },
+      {
+        "name": "Suburban War",
+        "artist": "The Arcade Fire",
+        "album": "The Suburbs",
+        "url": "/assets/sound/RossJack-RunningLate-ft.B.K.mp3",
+        "live": false,
+        "cover_art_url": "/assets/img/RunningLate1j.png"
+      }
+    ],
+    "default_album_art": "/assets/img/no-cover-large.png"
+  });
+
+  var expanded = false;
+  var playlistEpxanded = false;
+  /*
+    jQuery Visual Helpers
+  */
+  $('#small-player').hover(function(){
+    $('#small-player-middle-controls').show();
+    $('#small-player-middle-meta').hide();
+  }, function(){
+    $('#small-player-middle-controls').hide();
+    $('#small-player-middle-meta').show();
+
+  });
+
+  $('#top-large-album').hover(function(){
+    $('#top-header').show();
+    $('#small-player').show();
+  }, function(){
+    if( !$('#top-header').is(':hover') && !$('#small-player').is(':hover') ){
+      $('#top-header').fadeOut(1000);
+      $('#small-player').fadeOut(1000);
+    }
+  });
+
+  $('#top-header').hover(function(){
+    $('#top-header').show();
+    $('#small-player').show();
+  }, function(){
+
+  });
+
+  /*
+    Toggles Album Art
+  */
+  $('#small-player-toggle').click(function(){
+    $('.hidden-on-collapse').show();
+    $('.hidden-on-expanded').hide();
+    /*
+      Is expanded
+    */
+    expanded = true;
+
+    $('#small-player').css('border-top-left-radius', '0px');
+    $('#small-player').css('border-top-right-radius', '0px');
+  });
+
+  $('#top-header-toggle').click(function(){
+    $('.hidden-on-collapse').hide();
+    $('.hidden-on-expanded').show();
+    /*
+      Is collapsed
+    */
+    expanded = false;
+
+    $('#small-player').css('border-top-left-radius', '5px');
+    $('#small-player').css('border-top-right-radius', '5px');
+  });
+
+  $('.playlist-toggle').click(function(){
+    if( playlistEpxanded ){
+      $('#small-player-playlist').hide();
+
+      $('#small-player').css('border-bottom-left-radius', '5px');
+      $('#small-player').css('border-bottom-right-radius', '5px');
+
+      $('#large-album-art').css('border-bottom-left-radius', '5px');
+      $('#large-album-art').css('border-bottom-right-radius', '5px');
+
+      playlistEpxanded = false;
+    }else{
+      $('#small-player-playlist').show();
+
+      $('#small-player').css('border-bottom-left-radius', '0px');
+      $('#small-player').css('border-bottom-right-radius', '0px');
+
+      $('#large-album-art').css('border-bottom-left-radius', '0px');
+      $('#large-album-art').css('border-bottom-right-radius', '0px');
+
+      playlistEpxanded = true;
+    }
+  })
+</script>
 </html>
