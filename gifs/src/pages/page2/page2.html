@@ -43,6 +43,12 @@
                   </button>
                 </ion-col>
 
+                <ion-col>
+                  <button ion-button clear item-right (click)="viewItem(item.data)">
+                    <div>View</div>
+                  </button>
+                </ion-col>
+
                 <ion-col center text-center>
                   <ion-note>{{item.data.subreddit}}</ion-note>
                 </ion-col>

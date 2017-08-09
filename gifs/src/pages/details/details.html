@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-spinner name="circle" *ngIf="item == 0"></ion-spinner>
+
+<ion-content padding *ngIf="item != 0">
+<div padding>
+  <ion-item *ngFor="let item of items">
+    <h2>{{item.data.title}}</h2>
+    <h2 item-right>{{item.data.product}}</h2>
+    <ion-icon name="thumbs-up" item-right></ion-icon>
+
+    <p item-right>{{item.data.code}}</p>
+  </ion-item>
+</div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

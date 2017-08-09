@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RedditData } from '../../app/providers/redditData.service';
-import { Page4 } from '../page4/page4'
+import { DetailsPage } from '../details/details'
 
 @Component({
   selector: 'page-page1',
@@ -27,7 +27,7 @@ export class Page1 {
 
   }
   detailsPage(id){
-    this.navCtrl.push(Page4, {code: id})
+    this.navCtrl.push(DetailsPage, {code: id})
   }
   getItems(ev: any){
     this.redditData.loadAll().then(result => {
