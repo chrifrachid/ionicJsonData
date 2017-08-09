@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Reddits Posts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Category</ion-label>
+      <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
+        <ion-option value="art">Art</ion-option>
+        <ion-option value="technology">Technology</ion-option>
+        <ion-option value="education">Education</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
+        <img src="{{item.data.thumbnail}}">
+      </ion-thumbnail>
+    <h2>{{item.data.title}}</h2>
+    <p>
+      <ion-icon name="thumbs-up">{{item.data.score}}</ion-icon>
+      <ion-icon name="chatboxes">{{item.data.num_comments}}</ion-icon>
+    </p>
+    <button ion-button clear item-right (click)="viewItem(item.data)">View</button>
+  </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

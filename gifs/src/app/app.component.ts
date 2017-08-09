@@ -2,13 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { RedditData } from './providers/redditData.service';
 
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
-import { Page3 } from '../pages/page3/page3';
+import { MainPage } from '../pages/main/main';
+import { RedditsPage } from '../pages/reddits/reddits';
+import { TimeLinePage } from '../pages/timeline/timeline';
 import { DetailsPage } from '../pages/details/details';
+import { SettingsPage } from '../pages/settings/settings';
 
+import { RedditData } from './providers/redditData.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ myIcon: string = "home";
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = MainPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -29,10 +30,11 @@ myIcon: string = "home";
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Main', component: Page1 },
-      { title: 'Recent Posts', component: Page2 },
-      { title: 'Timeline', component: Page3 },
+      { title: 'Main', component: MainPage },
+      { title: 'Recent Posts', component: RedditsPage },
+      { title: 'Timeline', component: TimeLinePage },
       { title: 'Details', component: DetailsPage },
+      { title: 'Settings', component: SettingsPage },
     ];
 
   }

@@ -3,22 +3,45 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Details</ion-title>
+    <ion-title>{{item.title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-spinner name="circle" *ngIf="item == 0"></ion-spinner>
 
 <ion-content padding *ngIf="item != 0">
-<div padding>
-  <ion-item *ngFor="let item of items">
-    <h2>{{item.data.title}}</h2>
-    <h2 item-right>{{item.data.product}}</h2>
-    <ion-icon name="thumbs-up" item-right></ion-icon>
-
-    <p item-right>{{item.data.code}}</p>
-  </ion-item>
-</div>
+  <ion-card>
+    <img src="{{item.preview.images[0].source.url}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{item.title}}
+        </ion-card-title>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        Author
+        <ion-note item-right>
+          {{item.author}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="thumbs-up" item-left></ion-icon>
+        Score
+        <ion-note item-right>
+          {{item.score}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="chatboxes" item-left></ion-icon>
+        Comments
+        <ion-note item-right>
+          {{item.num_comments}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+    <a ion-button block target="_blank" href="http://www.reddit.com/{{item.permalink}}">View</a>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 <ion-footer>

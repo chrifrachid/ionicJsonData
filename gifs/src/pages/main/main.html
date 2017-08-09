@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Main</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-card>
+        <img src="{{item.data.thumbnail}}"/>
+        <div class="card-title"><h1 style="color: white">{{item.data.title}}</h1></div>
+        <div class="card-subtitle" name="thumbs-up">{{item.data.score}}</div>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="settings"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>
+
+
+
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
